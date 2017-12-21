@@ -7,3 +7,5 @@ There Are Two Ways to Run This Application :
    If Follow Is Clicked, Try Clicking Again.
    
 2. With The Source Code Download All The Jar Files And Build Them With Eclips, Then Run The Code.
+
+This App Was Real Fast, I made It Run Slow So Instagram Could Not Detect The Bot.
