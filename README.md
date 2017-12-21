@@ -1,5 +1,5 @@
 # Instagram-Bot
-A Website Automation App Which'll Follow And Unfollow People With A Single Click.
+A Website Automation App Which'll Follow, Unfollow, Like, Comment With A Single Click.
 
 There Are Two Ways to Run This Application : Both Require You To Put chromedriver.exe to "C:/chromedriver.exe". Do this First.
 
