@@ -1,6 +1,8 @@
 # Instagram-Bot
 A Website Automation App Which'll Follow, Unfollow, Like, Comment With A Single Click.
 
+Requirments : Google Chrome, Java Development Kit(JDK), Eclipse(Only If You Want to Modify Source Code). 
+
 There Are Two Ways to Run This Application : Both Require You To Put chromedriver.exe to "C:/chromedriver.exe". Do this First.
 
 1. If You Just Want To Run The App Then, Download The InstagramBot.jar And Double Click On it. You Must Have chromedriver.exe in "C:/chromedriver.exe".
