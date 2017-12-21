@@ -1,11 +1,10 @@
 # Instagram-Bot
 A Website Automation App Which'll Follow And Unfollow People With A Single Click.
 
-There Are Two Ways to Run This Application : 
+There Are Two Ways to Run This Application : Both Require You To Put chromedriver.exe to "C:/chromedriver.exe". Do this First.
 
-1. Download And Extract Zip File, You'll See Two Files, Jar File And exe File, Place chromedriver.exe into your C Drive Path Should Be        "C:/chromedriver.exe" Now You're Ready To Test Instagram Bot, Just Double Click On Jar File And See Bot Doing Things.
-   If Follow Is Clicked, Try Clicking Again.
+1. If You Just Want To Run The App Download The Jar And Double Click On it. You Must Have chromedriver.exe in "C:/chromedriver.exe".
    
-2. With The Source Code Download All The Jar Files And Build Them With Eclips, Then Run The Code.
+2. If You Want To Modify And Run And Test Then Download InstaBot.zip. Build Jar Files With Eclipse, Then Run The Code. You Must Have chromedriver.exe in "C:/chromedriver.exe".
 
 This App Was Real Fast, I made It Run Slow So Instagram Could Not Detect The Bot.
