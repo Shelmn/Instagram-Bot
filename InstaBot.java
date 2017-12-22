@@ -64,12 +64,12 @@ public class InstaBot {
 			Thread.sleep((int) (1000 * Math.random() * 7));
 			driver.findElement(By.xpath(xpathusername)).click();
 			Thread.sleep((int) (1000 * Math.random() * 9));
-			driver.findElement(By.xpath(xpathusername)).sendKeys("vivi_an563");
-			// driver.findElement(By.xpath(xpathusername)).sendKeys("Aakansha_Agarwal7");
+			// driver.findElement(By.xpath(xpathusername)).sendKeys("vivi_an563");
+			driver.findElement(By.xpath(xpathusername)).sendKeys("Aakansha_Agarwal7");
 			driver.findElement(By.xpath(xpathpassword)).click();
 			Thread.sleep((int) (1000 * Math.random() * 13));
-			driver.findElement(By.xpath(xpathpassword)).sendKeys("wehatehackers");
-			// driver.findElement(By.xpath(xpathpassword)).sendKeys("ohmygod");
+			// driver.findElement(By.xpath(xpathpassword)).sendKeys("wehatehackers");
+			driver.findElement(By.xpath(xpathpassword)).sendKeys("ohmygod");
 			driver.findElement(By.xpath(xpthLoginButton)).click();
 			Thread.sleep((int) (1000 * Math.random() * 12));
 		}
@@ -148,17 +148,14 @@ public class InstaBot {
 		while (true) {
 			try {
 				// Like The Random Picture
-
-				Thread.sleep((int) (1000 * 10));
-				driver.navigate().refresh();
-				Thread.sleep((int) (1000 * 10));
-
 				driver.findElement(By.xpath(xpathsearch)).click();
 				driver.switchTo().activeElement().sendKeys("#followforfollow");
 				Thread.sleep((int) (1000 * Math.random() * 15));
 
 				driver.findElement(By.xpath(Tagfinder)).click();
 
+				Thread.sleep((int) (1000 * Math.random() * 7));
+				driver.navigate().refresh();
 				Thread.sleep((int) (1000 * Math.random() * 20));
 
 				long i = 7;
@@ -252,7 +249,7 @@ public class InstaBot {
 
 				driver.navigate().back();
 
-				Thread.sleep((int) (1000 * Math.random() * 245));
+				Thread.sleep((int) (1000 * Math.random() * 115));
 
 			} catch (Exception e) {
 				System.out.println("Like: " + Like + ", Comment: " + Comment + ", Follow: " + Follow);
