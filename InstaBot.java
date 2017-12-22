@@ -35,6 +35,8 @@ public class InstaBot {
 
 	static int Follow = 0;
 
+	int docomment;
+
 	public void invokeBrowser() {
 		try {
 			System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
@@ -59,15 +61,17 @@ public class InstaBot {
 			String xpthLoginButton = "//*[@id=\"react-root\"]/section/main/article/div[2]/div[1]/div/form/span/button";
 
 			driver.findElement(By.xpath("//*[@id=\"react-root\"]/section/main/article/div[2]/div[2]/p/a")).click();
-			Thread.sleep((int) (1000 * Math.random() * 11));
+			Thread.sleep((int) (1000 * Math.random() * 7));
 			driver.findElement(By.xpath(xpathusername)).click();
-			Thread.sleep((int) (1000 * Math.random() * 16));
+			Thread.sleep((int) (1000 * Math.random() * 9));
 			driver.findElement(By.xpath(xpathusername)).sendKeys("vivi_an563");
+			// driver.findElement(By.xpath(xpathusername)).sendKeys("Aakansha_Agarwal7");
 			driver.findElement(By.xpath(xpathpassword)).click();
-			Thread.sleep((int) (1000 * Math.random() * 19));
+			Thread.sleep((int) (1000 * Math.random() * 13));
 			driver.findElement(By.xpath(xpathpassword)).sendKeys("wehatehackers");
+			// driver.findElement(By.xpath(xpathpassword)).sendKeys("ohmygod");
 			driver.findElement(By.xpath(xpthLoginButton)).click();
-			Thread.sleep((int) (1000 * Math.random() * 21));
+			Thread.sleep((int) (1000 * Math.random() * 12));
 		}
 
 		catch (Exception e) {
@@ -87,7 +91,7 @@ public class InstaBot {
 				driver.findElement(By.xpath(xpthofitems.toString())).click();
 
 				if (driver.findElements(By.cssSelector("button._qv64e._gexxb._r9b8f._njrw0")).size() == 1) {
-					Thread.sleep((long) (1000 * Math.random() * 156));
+					Thread.sleep((long) (1000 * Math.random() * 62));
 					driver.findElement(By.cssSelector("button._qv64e._gexxb._r9b8f._njrw0")).click();
 				}
 			}
@@ -99,10 +103,10 @@ public class InstaBot {
 		try {
 			driver.findElement(By.xpath(profile)).click();
 			driver.findElement(By.xpath(following)).click();
-			for (int i = 50; i < 25; i -= 1) {
+			for (int i = 1; i < 25; i += 1) {
 				StringBuilder Unfollow = new StringBuilder(unfollow);
 				Unfollow.insert(50, Integer.toString(i));
-				Thread.sleep((long) (1000 * Math.random() * 125));
+				Thread.sleep((long) (1000 * Math.random() * 54));
 				driver.findElement(By.xpath(Unfollow.toString())).click();
 			}
 
@@ -145,28 +149,38 @@ public class InstaBot {
 			try {
 				// Like The Random Picture
 
+				Thread.sleep((int) (1000 * 10));
+				driver.navigate().refresh();
+				Thread.sleep((int) (1000 * 10));
+
 				driver.findElement(By.xpath(xpathsearch)).click();
 				driver.switchTo().activeElement().sendKeys("#followforfollow");
-
-				Thread.sleep((int) (1000 * Math.random() * 19));
+				Thread.sleep((int) (1000 * Math.random() * 15));
 
 				driver.findElement(By.xpath(Tagfinder)).click();
 
-				Thread.sleep((int) (1000 * Math.random() * 100));
+				Thread.sleep((int) (1000 * Math.random() * 20));
 
-				int i = 0;
+				long i = 7;
 
-				while (i != 13) {
+				int k = ((int) (Math.random() * Math.random() * 7 * 9)) + 21;
+
+				while (i != 0 && i % k != 0) {
 					Actions action = new Actions(driver);
-					action.sendKeys(Keys.ARROW_DOWN).build().perform();
-					action.sendKeys(Keys.ARROW_DOWN).build().perform();
-					if (i > 15)
-						i = (int) (Math.random() * 20);
-					else if (i < 5)
-						i = (int) (Math.random() * 30);
-					else
-						i = (int) (Math.random() * 25);
+					if (i % 3 == 0) {
+						i = (long) ((Math.random() * Math.random() * 91) + (Math.random() * Math.random() * 781));
+						action.sendKeys(Keys.ARROW_DOWN).build().perform();
+						action.sendKeys(Keys.ARROW_DOWN).build().perform();
+						action.sendKeys(Keys.ARROW_DOWN).build().perform();
+						action.sendKeys(Keys.ARROW_DOWN).build().perform();
+					} else {
+						i = (long) ((Math.random() * Math.random() * 75) + (Math.random() * Math.random() * 519));
+						action.sendKeys(Keys.ARROW_DOWN).build().perform();
+					}
+					if (i == 0)
+						i = 5931;
 
+					k = ((int) (Math.random() * Math.random() * 3 * 2 * 7 * 9)) + 27;
 				}
 
 				int p = 0;
@@ -175,11 +189,13 @@ public class InstaBot {
 					p = (int) (Math.random() * 10);
 				}
 
-				Thread.sleep((int) (1000 * Math.random() * 29));
+				Thread.sleep((int) (1000 * Math.random() * 15));
+
+				Thread.sleep((int) (1000 * 4));
 
 				String element = "//*[@id=\"react-root\"]/section/main/article/div[2]/div[1]/div[2]/div[" + p + "]";
 				driver.findElement(By.xpath(element)).click();
-				Thread.sleep((int) (1000 * Math.random() * 73));
+				Thread.sleep((int) (1000 * Math.random() * 51));
 
 				WebElement element1 = driver
 						.findElement(By.xpath("/html/body/div[3]/div/div[2]/div/article/div[1]/div/div"));
@@ -190,13 +206,13 @@ public class InstaBot {
 
 				// Comment On Liked Picture
 
-				int docomment = (int) (Math.random() * 20);
+				docomment = (int) (Math.random() * 20);
 
 				String xpathfollow;
 
-				if (docomment % 3 == 0) {
+				if (true) {
 
-					Thread.sleep((int) (1000 * Math.random() * 51));
+					Thread.sleep((int) (1000 * Math.random() * 24));
 
 					String xpathcomment = "/html/body/div[3]/div/div[2]/div/article/div[2]/section[3]/form";
 
@@ -208,23 +224,27 @@ public class InstaBot {
 
 					Thread.sleep((int) (1000 * Math.random() * 10));
 
+					Thread.sleep((int) (1000 * Math.random() * 20));
+
 					action.sendKeys(Keys.RETURN).build().perform();
 
 					Comment += 1;
 				}
 
-				Thread.sleep((int) (1000 * Math.random() * 57));
+				Thread.sleep((int) (1000 * Math.random() * 26));
 
 				// Follow
 
 				xpathfollow = "/html/body/div[3]/div/div[2]/div/article/header/div[2]/div[1]/div[2]/span[2]";
 				driver.findElement(By.xpath(xpathfollow)).click();
 
+				Thread.sleep((int) (1000 * Math.random() * 20));
+
 				Follow += 1;
 
 				// To Go Back
 
-				Thread.sleep((int) (1000 * Math.random() * 35));
+				Thread.sleep((int) (1000 * Math.random() * 21));
 
 				driver.navigate().back();
 
@@ -232,10 +252,10 @@ public class InstaBot {
 
 				driver.navigate().back();
 
-				Thread.sleep((int) (1000 * Math.random() * 400));
+				Thread.sleep((int) (1000 * Math.random() * 245));
 
 			} catch (Exception e) {
-				System.out.println("Like: " + Like + ", Comment: " + Comment + ", Follow" + Follow);
+				System.out.println("Like: " + Like + ", Comment: " + Comment + ", Follow: " + Follow);
 			}
 		}
 	}
@@ -251,10 +271,10 @@ public class InstaBot {
 			// instabot.toUnfollow();
 
 			instabot.toLikeCommentFollow();
-			System.out.println("Like: " + Like + ", Comment: " + Comment + ", Follow" + Follow);
+			System.out.println("Like: " + Like + ", Comment: " + Comment + ", Follow: " + Follow);
 
 		} catch (Exception e) {
-			System.out.println("Like: " + Like + ", Comment: " + Comment + ", Follow" + Follow);
+			System.out.println("Like: " + Like + ", Comment: " + Comment + ", Follow: " + Follow);
 		}
 
 	}
