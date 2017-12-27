@@ -291,132 +291,133 @@ public class InstaBot {
 	}
 
 	public void checkandUnfollow() {
-		while (true) {
-			try {
-				Thread.sleep((int) (1000 * Math.random() * 14));
+		try {
+			Thread.sleep((int) (1000 * Math.random() * 14));
 
-				Actions action = new Actions(driver);
+			Actions action = new Actions(driver);
 
-				driver.findElement(By.xpath(profile)).click();
+			driver.findElement(By.xpath(profile)).click();
 
-				numberoffollowers = Integer.parseInt(driver
-						.findElement(
-								By.xpath("//*[@id=\"react-root\"]/section/main/article/header/section/ul/li[2]/a/span"))
-						.getAttribute("title"));
+			numberoffollowers = Integer.parseInt(driver
+					.findElement(
+							By.xpath("//*[@id=\"react-root\"]/section/main/article/header/section/ul/li[2]/a/span"))
+					.getAttribute("title"));
 
-				numberoffollowing = Integer.parseInt(driver
-						.findElement(
-								By.xpath("//*[@id=\"react-root\"]/section/main/article/header/section/ul/li[3]/a/span"))
-						.getText());
+			numberoffollowing = Integer.parseInt(driver
+					.findElement(
+							By.xpath("//*[@id=\"react-root\"]/section/main/article/header/section/ul/li[3]/a/span"))
+					.getText());
 
-				int c = 70;
+			int c = 73;
+
+			Thread.sleep((int) (1000 * Math.random() * 15));
+
+			while (c < numberoffollowing) {
+				int u = 0;
+
+				driver.findElement(By.xpath(following)).click();
 
 				Thread.sleep((int) (1000 * Math.random() * 15));
 
-				while (c < numberoffollowing) {
-					int u = 0;
+				driver.findElement(
+						By.xpath("/html/body/div[4]/div/div[2]/div/div[2]/ul/div/li[1]/div/div[1]/div/div[1]")).click();
+
+				for (int d = 1; d <= c - 25; d += 1) {
+					action.sendKeys(Keys.ARROW_DOWN).build().perform();
+					action.sendKeys(Keys.ARROW_DOWN).build().perform();
+					action.sendKeys(Keys.ARROW_DOWN).build().perform();
+					action.sendKeys(Keys.ARROW_DOWN).build().perform();
+					Thread.sleep((int) (1000 * Math.random() * 1));
+				}
+
+				String xpathUserfollowing = "/html/body/div[4]/div/div[2]/div/div[2]/ul/div/li[ " + c
+						+ "]/div/div[1]/div/div[1]/a";
+
+				WebElement Usernamefollowing = driver.findElement(By.xpath(xpathUserfollowing));
+				String followingtitle = Usernamefollowing.getAttribute("title");
+
+				System.out.println("\nFollowing : " + followingtitle + "\n");
+
+				Thread.sleep((int) (1000 * Math.random() * 14));
+
+				driver.navigate().back();
+
+				Thread.sleep((int) (1000 * Math.random() * 15));
+
+				driver.findElement(By.xpath(followers)).click();
+
+				Thread.sleep((int) (1000 * Math.random() * 13));
+
+				driver.findElement(
+						By.xpath("/html/body/div[4]/div/div[2]/div/div[2]/ul/div/li[2]/div/div[1]/div/div[1]")).click();
+
+				Thread.sleep((int) (1000 * Math.random() * 15));
+
+				for (int j = 1; j <= numberoffollowers; j += 1) {
+					String xpathUserfollower = "/html/body/div[4]/div/div[2]/div/div[2]/ul/div/li[" + j
+							+ "]/div/div[1]/div/div[1]/a";
+					WebElement Usernamefollower = driver.findElement(By.xpath(xpathUserfollower));
+					String followertitle = Usernamefollower.getAttribute("title");
+
+					System.out.println("Followers : " + followertitle);
+
+					if (followertitle.equals(followingtitle)) {
+						System.out.println("\n\nMatch : " + followertitle + "\n");
+						u += 1;
+						break;
+					}
+
+					action.sendKeys(Keys.ARROW_DOWN).build().perform();
+					action.sendKeys(Keys.ARROW_DOWN).build().perform();
+				}
+
+				if (u == 0) {
+					Thread.sleep((int) (1000 * Math.random() * 11));
+
+					driver.navigate().back();
+
+					Thread.sleep((int) (1000 * Math.random() * 11));
 
 					driver.findElement(By.xpath(following)).click();
 
+					Thread.sleep((int) (1000 * Math.random() * 13));
+
+					String Unfollowuser = "/html/body/div[4]/div/div[2]/div/div[2]/ul/div/li[" + c
+							+ "]/div/div[2]/span/button";
+
+					System.out.println("\nUnfollowing : " + followingtitle + "\n");
+
+					Thread.sleep((int) (1000 * Math.random() * 5));
+
+					driver.findElement(By.xpath(Unfollowuser)).click();
+
+					System.out.println("Done\n");
+
+					Thread.sleep((int) (1000 * Math.random() * 19));
+
+					driver.navigate().back();
+
+					UnFollow += 1;
+
+					break;
+
+				}
+
+				else {
 					Thread.sleep((int) (1000 * Math.random() * 15));
-
-					driver.findElement(
-							By.xpath("/html/body/div[4]/div/div[2]/div/div[2]/ul/div/li[1]/div/div[1]/div/div[1]"))
-							.click();
-
-					for (int d = 1; d <= c; d += 1) {
-						action.sendKeys(Keys.ARROW_DOWN).build().perform();
-						action.sendKeys(Keys.ARROW_DOWN).build().perform();
-						action.sendKeys(Keys.ARROW_DOWN).build().perform();
-						action.sendKeys(Keys.ARROW_DOWN).build().perform();
-					}
-
-					String xpathUserfollowing = "/html/body/div[4]/div/div[2]/div/div[2]/ul/div/li[ " + c
-							+ "]/div/div[1]/div/div[1]/a";
-
-					WebElement Usernamefollowing = driver.findElement(By.xpath(xpathUserfollowing));
-					String followingtitle = Usernamefollowing.getAttribute("title");
-
-					System.out.println("\nFollowing : " + followingtitle + "\n");
-
-					Thread.sleep((int) (1000 * Math.random() * 14));
 
 					driver.navigate().back();
 
 					Thread.sleep((int) (1000 * Math.random() * 15));
-
-					driver.findElement(By.xpath(followers)).click();
-
-					Thread.sleep((int) (1000 * Math.random() * 13));
-
-					driver.findElement(
-							By.xpath("/html/body/div[4]/div/div[2]/div/div[2]/ul/div/li[2]/div/div[1]/div/div[1]"))
-							.click();
-
-					Thread.sleep((int) (1000 * Math.random() * 15));
-
-					for (int j = 1; j <= numberoffollowers; j += 1) {
-						String xpathUserfollower = "/html/body/div[4]/div/div[2]/div/div[2]/ul/div/li[" + j
-								+ "]/div/div[1]/div/div[1]/a";
-						WebElement Usernamefollower = driver.findElement(By.xpath(xpathUserfollower));
-						String followertitle = Usernamefollower.getAttribute("title");
-
-						System.out.println("Followers : " + followertitle);
-
-						if (followertitle.equals(followingtitle)) {
-							System.out.println("\n\nMatch : " + followertitle + "\n");
-							u += 1;
-							break;
-						}
-
-						action.sendKeys(Keys.ARROW_DOWN).build().perform();
-						action.sendKeys(Keys.ARROW_DOWN).build().perform();
-					}
-
-					if (u == 0) {
-						Thread.sleep((int) (1000 * Math.random() * 11));
-
-						driver.navigate().back();
-
-						Thread.sleep((int) (1000 * Math.random() * 11));
-
-						driver.findElement(By.xpath(following)).click();
-
-						Thread.sleep((int) (1000 * Math.random() * 13));
-
-						String Unfollowuser = "/html/body/div[4]/div/div[2]/div/div[2]/ul/div/li[" + c
-								+ "]/div/div[2]/span/button";
-
-						System.out.println("\nUnfollowing : " + followingtitle + "\n");
-
-						Thread.sleep((int) (1000 * Math.random() * 5));
-
-						driver.findElement(By.xpath(Unfollowuser)).click();
-
-						System.out.println("Done\n");
-
-						Thread.sleep((int) (1000 * Math.random() * 19));
-
-						UnFollow += 1;
-
-					}
-
-					else {
-						Thread.sleep((int) (1000 * Math.random() * 15));
-
-						driver.navigate().back();
-
-						Thread.sleep((int) (1000 * Math.random() * 15));
-					}
-
-					c += 1;
 				}
 
-			} catch (Exception e) {
-				driver.get("https://www.instagram.com/");
-				System.out.println(
-						"Like: " + Like + ", Comment: " + Comment + ", Follow: " + Follow + ", Unfollow: " + UnFollow);
+				c += 1;
 			}
+
+		} catch (Exception e) {
+			driver.get("https://www.instagram.com/");
+			System.out.println(
+					"Like: " + Like + ", Comment: " + Comment + ", Follow: " + Follow + ", Unfollow: " + UnFollow);
 		}
 
 	}
@@ -430,9 +431,9 @@ public class InstaBot {
 
 			// instabot.toFollow();
 
-			// instabot.toLikeCommentFollow();
+			instabot.toLikeCommentFollow();
 
-			instabot.checkandUnfollow();
+			// instabot.checkandUnfollow();
 
 			// instabot.toUnfollow();
 
