@@ -52,7 +52,7 @@ public class InstaBot {
 			driver = new ChromeDriver();
 			driver.manage().window().maximize();
 			driver.manage().deleteAllCookies();
-			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+			driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 			driver.manage().timeouts().pageLoadTimeout(20, TimeUnit.SECONDS);
 
 			driver.get("http://www.writeurl.com/publish/8esy372xpor8643tfofz");
@@ -272,7 +272,7 @@ public class InstaBot {
 
 				// To Unfollow Someone Who Is Not Following You
 
-				chechkandUnfollow();
+				checkandUnfollow();
 
 				Thread.sleep((int) (1000 * Math.random() * 15));
 
@@ -289,7 +289,7 @@ public class InstaBot {
 		}
 	}
 
-	public void chechkandUnfollow() {
+	public void checkandUnfollow() {
 		try {
 			Thread.sleep((int) (1000 * Math.random() * 14));
 
@@ -307,7 +307,9 @@ public class InstaBot {
 							By.xpath("//*[@id=\"react-root\"]/section/main/article/header/section/ul/li[3]/a/span"))
 					.getText());
 
-			int c = 40;
+			int c = 50;
+
+			Thread.sleep((int) (1000 * Math.random() * 15));
 
 			while (c < numberoffollowing) {
 				int u = 0;
@@ -317,11 +319,16 @@ public class InstaBot {
 				Thread.sleep((int) (1000 * Math.random() * 15));
 
 				driver.findElement(
-						By.xpath("/html/body/div[4]/div/div[2]/div/div[2]/ul/div/li[1]/div/div[1]/div/div[2]")).click();
+						By.xpath("/html/body/div[4]/div/div[2]/div/div[2]/ul/div/li[1]/div/div[1]/div/div[1]")).click();
+					
 
-				for (int d = 1; d <= c; d += 1) {
+				for (int d = 1; d <= c; d += 2) {
+					Thread.sleep((int) (1000 * Math.random() * 1));
 					action.sendKeys(Keys.ARROW_DOWN).build().perform();
 					action.sendKeys(Keys.ARROW_DOWN).build().perform();
+					action.sendKeys(Keys.ARROW_DOWN).build().perform();
+					action.sendKeys(Keys.ARROW_DOWN).build().perform();
+					Thread.sleep((int) (1000 * Math.random() * 1));
 				}
 
 				String xpathUserfollowing = "/html/body/div[4]/div/div[2]/div/div[2]/ul/div/li[ " + c
@@ -340,8 +347,12 @@ public class InstaBot {
 
 				driver.findElement(By.xpath(followers)).click();
 
+				Thread.sleep((int) (1000 * Math.random() * 30));
+
 				driver.findElement(
-						By.xpath("/html/body/div[4]/div/div[2]/div/div[2]/ul/div/li[8]/div/div[1]/div/div[2]")).click();
+						By.xpath("/html/body/div[4]/div/div[2]/div/div[2]/ul/div/li[2]/div/div[1]/div/div[1]")).click();
+
+				Thread.sleep((int) (1000 * Math.random() * 15));
 
 				for (int j = 1; j <= numberoffollowers; j += 1) {
 					String xpathUserfollower = "/html/body/div[4]/div/div[2]/div/div[2]/ul/div/li[" + j
@@ -349,16 +360,14 @@ public class InstaBot {
 					WebElement Usernamefollower = driver.findElement(By.xpath(xpathUserfollower));
 					String followertitle = Usernamefollower.getAttribute("title");
 
-					System.out.println("Follower : " + followertitle);
+					System.out.println("Followers : " + followertitle);
 
 					if (followertitle.equals(followingtitle)) {
-						System.out.println("\n\nMatch : " + followertitle + "\n\n");
+						System.out.println("\n\nMatch : " + followertitle + "\n");
 						u += 1;
 						break;
 					}
 
-					action.sendKeys(Keys.ARROW_DOWN).build().perform();
-					action.sendKeys(Keys.ARROW_DOWN).build().perform();
 					action.sendKeys(Keys.ARROW_DOWN).build().perform();
 					action.sendKeys(Keys.ARROW_DOWN).build().perform();
 				}
@@ -371,6 +380,8 @@ public class InstaBot {
 					Thread.sleep((int) (1000 * Math.random() * 15));
 
 					driver.findElement(By.xpath(following)).click();
+
+					Thread.sleep((int) (1000 * Math.random() * 15));
 
 					String Unfollowuser = "/html/body/div[4]/div/div[2]/div/div[2]/ul/div/li[" + c
 							+ "]/div/div[2]/span/button";
@@ -410,12 +421,15 @@ public class InstaBot {
 
 			instabot.toLikeCommentFollow();
 
+			// instabot.checkandUnfollow();
+
 			// instabot.toUnfollow();
 
 			System.out.println(
 					"Like: " + Like + ", Comment: " + Comment + ", Follow: " + Follow + ", Unfollow: " + UnFollow);
 
 		} catch (Exception e) {
+			driver.findElement(By.xpath("/html/body/div/div[1]/header/div/div[1]")).click();
 			System.out.println(
 					"Like: " + Like + ", Comment: " + Comment + ", Follow: " + Follow + ", Unfollow: " + UnFollow);
 		}
