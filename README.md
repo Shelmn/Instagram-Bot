@@ -11,5 +11,5 @@ There Are Two Ways to Run This Application : Both Require You To Put chromedrive
 
 This App Was Real Fast, I made It Run Slow So Instagram Could Not Detect The Bot.
 
-Instagram Test Id : vivi_an563
-Password : wehatehackers
+Instagram Test Id : Aakansha_Agarwal7
+Password : ohmygod
