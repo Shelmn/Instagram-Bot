@@ -27,11 +27,11 @@ public class InstaBot {
 	String[] s1 = { "This", "The", "Your" };
 	String[] s2 = { "photo", "picture", "pic", "shot", "snapshot", "photograph", "portrait" };
 	String[] s3 = { "is", "looks", "feels", "is really" };
-	String[] s4 = { "appealing", "attractive", "eye-catching", "charming", "impressive", "pleasant", "pleasing",
-			"impressive", "marvelous", "stunning", "astonishing", "authentic", "delightful", "exquisite", "admirable",
-			"impeccable", "super", "wow", "cool", "GREAT", "magnificent", "magical", "stylish", "so beautiful",
-			"so professional", "so lovely", "wonderful", "adorable", "excellent", "amazing", "elegant", "fascinating",
-			"glorious", "lovable", "delightful" };
+	String[] s4 = { "magnificent", "magical", "stylish", "so beautiful", "so professional", "so lovely", "wonderful",
+			"adorable", "excellent", "amazing", "elegant", "fascinating", "glorious", "lovable", "delightful",
+			"appealing", "attractive", "eye-catching", "charming", "impressive", "pleasant", "pleasing", "impressive",
+			"marvelous", "stunning", "astonishing", "authentic", "delightful", "exquisite", "admirable", "impeccable",
+			"super", "wow", "cool", "GREAT" };
 	String[] s5 = { ".", "..", "...", "!", "!!", "!!!" };
 
 	static int Like = 0;
@@ -48,7 +48,7 @@ public class InstaBot {
 
 	int numberoffollowing;
 
-	int c = 200;
+	int c = 40;
 
 	public void invokeBrowser() {
 		try {
@@ -73,7 +73,7 @@ public class InstaBot {
 			driver.findElement(By.xpath("//*[@id=\"react-root\"]/section/main/article/div[2]/div[2]/p/a")).click();
 
 			Thread.sleep((int) (1000 * Math.random() * 2));
-
+			
 			// driver.switchTo().activeElement().sendKeys("vivi_an563");
 			driver.switchTo().activeElement().sendKeys("Aakansha_Agarwal7");
 
@@ -215,7 +215,7 @@ public class InstaBot {
 				Thread.sleep((int) (1000 * Math.random() * 5));
 
 				WebElement element1 = driver
-						.findElement(By.xpath("/html/body/div[4]/div/div[2]/div/article/div[1]/div/div/div[2]"));
+						.findElement(By.xpath("/html/body/div[3]/div/div[2]/div/article/div[1]/div/div"));
 				Actions action = new Actions(driver);
 				action.doubleClick(element1).perform();
 
@@ -231,7 +231,7 @@ public class InstaBot {
 
 					Thread.sleep((int) (1000 * Math.random() * 7));
 
-					String xpathcomment = "/html/body/div[4]/div/div[2]/div/article/div[2]/section[3]/form/textarea";
+					String xpathcomment = "/html/body/div[3]/div/div[2]/div/article/div[2]/section[3]/form";
 
 					driver.findElement(By.xpath(xpathcomment)).click();
 
@@ -250,7 +250,7 @@ public class InstaBot {
 
 				// Follow
 
-				xpathfollow = "/html/body/div[4]/div/div[2]/div/article/header/div[2]/div[1]/div[2]/span[2]/button";
+				xpathfollow = "/html/body/div[3]/div/div[2]/div/article/header/div[2]/div[1]/div[2]/span[2]";
 				driver.findElement(By.xpath(xpathfollow)).click();
 
 				Thread.sleep((int) (1000 * Math.random() * 7));
@@ -281,13 +281,7 @@ public class InstaBot {
 
 				System.out.println("\nFollow : " + Follow);
 
-				Thread.sleep((int) (1000 * Math.random() * 17));
-
-				if (Follow % 30 == 0 && Follow != 0) {
-					int q = 200 + (int) (Math.random() * 200);
-					System.out.println("\nSleeping For " + q + " Seconds.\n");
-					Thread.sleep((int) (1000 * q));
-				}
+				Thread.sleep((int) (1000 * (30 + Math.random() * 30)));
 
 			} catch (Exception e) {
 				Comment = 0;
@@ -332,11 +326,11 @@ public class InstaBot {
 					Thread.sleep((int) (1000 * Math.random() * 2));
 
 					driver.findElement(
-							By.xpath("/html/body/div[5]/div/div[2]/div/div[2]/ul/div/li[1]/div/div[1]/div/div[1]"))
+							By.xpath("/html/body/div[4]/div/div[2]/div/div[2]/ul/div/li[1]/div/div[1]/div/div[1]"))
 							.click();
 
 					if (v == c) {
-						for (int d = 1; d <= c; d += 4) {
+						for (int d = 1; d <= numberoffollowing; d += 4) {
 							action.sendKeys(Keys.ARROW_DOWN).build().perform();
 							action.sendKeys(Keys.ARROW_DOWN).build().perform();
 							action.sendKeys(Keys.ARROW_DOWN).build().perform();
@@ -349,7 +343,7 @@ public class InstaBot {
 						}
 					}
 
-					String xpathUserfollowing = "/html/body/div[5]/div/div[2]/div/div[2]/ul/div/li[" + c
+					String xpathUserfollowing = "/html/body/div[4]/div/div[2]/div/div[2]/ul/div/li[ " + c
 							+ "]/div/div[1]/div/div[1]/a";
 
 					WebElement Usernamefollowing = driver.findElement(By.xpath(xpathUserfollowing));
@@ -369,7 +363,7 @@ public class InstaBot {
 						Thread.sleep((int) (1000 * Math.random() * 3));
 
 						driver.findElement(
-								By.xpath("/html/body/div[5]/div/div[2]/div/div[2]/ul/div/li[1]/div/div[1]/div/div[1]"))
+								By.xpath("/html/body/div[4]/div/div[2]/div/div[2]/ul/div/li[2]/div/div[1]/div/div[1]"))
 								.click();
 
 						Thread.sleep((int) (1000 * Math.random() * 3));
@@ -387,7 +381,7 @@ public class InstaBot {
 						}
 						for (int j = 1; j <= numberoffollowers - 2; j += 1) {
 
-							String xpathUserfollower = "/html/body/div[5]/div/div[2]/div/div[2]/ul/div/li[" + j
+							String xpathUserfollower = "/html/body/div[4]/div/div[2]/div/div[2]/ul/div/li[" + j
 									+ "]/div/div[1]/div/div[1]/a";
 							WebElement Usernamefollower = driver.findElement(By.xpath(xpathUserfollower));
 							String followertitle = Usernamefollower.getAttribute("title");
@@ -419,7 +413,7 @@ public class InstaBot {
 
 						Thread.sleep((int) (1000 * Math.random() * 3));
 
-						String Unfollowuser = "/html/body/div[5]/div/div[2]/div/div[2]/ul/div/li[" + c
+						String Unfollowuser = "/html/body/div[4]/div/div[2]/div/div[2]/ul/div/li[" + c
 								+ "]/div/div[2]/span/button";
 
 						System.out.println("\nUnfollowing : " + followingtitle + "\n");
@@ -440,7 +434,7 @@ public class InstaBot {
 
 						UnFollow += 1;
 
-						Thread.sleep((int) (1000 * Math.random() * 20));
+						Thread.sleep((int) (1000 * (30 + Math.random() * 30)));
 
 						// break;
 
@@ -455,12 +449,6 @@ public class InstaBot {
 					System.out.println("\nMatch: " + (v - x));
 					System.out.println("\nC : " + c + "\n");
 
-					if (UnFollow % 20 == 0 && UnFollow != 0) {
-						int q = 300 + (int) (Math.random() * 400);
-						System.out.println("\nSleeping For " + q + " Seconds.\n");
-						Thread.sleep((int) (1000 * q));
-					}
-
 				}
 
 			} catch (
@@ -471,6 +459,51 @@ public class InstaBot {
 			}
 		}
 
+	}
+
+	void likenewsfeed() {
+		try {
+			Actions action = new Actions(driver);
+
+			action.sendKeys(Keys.ARROW_DOWN).build().perform();
+			action.sendKeys(Keys.ARROW_DOWN).build().perform();
+			action.sendKeys(Keys.ARROW_DOWN).build().perform();
+			action.sendKeys(Keys.ARROW_DOWN).build().perform();
+			action.sendKeys(Keys.ARROW_DOWN).build().perform();
+			action.sendKeys(Keys.ARROW_DOWN).build().perform();
+			action.sendKeys(Keys.ARROW_DOWN).build().perform();
+			action.sendKeys(Keys.ARROW_DOWN).build().perform();
+
+			for (int i = 1; i < 100; i += 1) {
+				Thread.sleep((int) (1000 * Math.random() * 1));
+
+				action.sendKeys(Keys.ARROW_DOWN).build().perform();
+				action.sendKeys(Keys.ARROW_DOWN).build().perform();
+				action.sendKeys(Keys.ARROW_DOWN).build().perform();
+				action.sendKeys(Keys.ARROW_DOWN).build().perform();
+
+				Thread.sleep((int) (1000 * Math.random() * 1));
+
+				WebElement element1 = driver.findElement(By.xpath(
+						"//*[@id=\"react-root\"]/section/main/section/div/div[1]/div/article[" + 5 + "]/div[1]"));
+
+				action.doubleClick(element1).perform();
+
+				Like += 1;
+
+				System.out.println("\nLikes : " + Like);
+
+				Thread.sleep((int) (1000 * Math.random() * 1));
+
+				action.sendKeys(Keys.ARROW_DOWN).build().perform();
+				action.sendKeys(Keys.ARROW_DOWN).build().perform();
+				action.sendKeys(Keys.ARROW_DOWN).build().perform();
+				action.sendKeys(Keys.ARROW_DOWN).build().perform();
+
+				Thread.sleep((int) (1000 * Math.random() * 10));
+			}
+		} catch (Exception e) {
+		}
 	}
 
 	public static void main(String[] args) {
@@ -484,7 +517,9 @@ public class InstaBot {
 
 			instabot.toLikeCommentFollow();
 
-			instabot.checkandUnfollow();
+			// instabot.checkandUnfollow();
+
+			// instabot.likenewsfeed();
 
 			// instabot.toUnfollow();
 
