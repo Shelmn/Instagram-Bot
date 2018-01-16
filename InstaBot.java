@@ -74,19 +74,15 @@ public class InstaBot {
 
 			Thread.sleep((int) (1000 * Math.random() * 2));
 
-			driver.switchTo().activeElement().sendKeys("aakanshaarora7");
-
 			// driver.switchTo().activeElement().sendKeys("vivi_an563");
-			// driver.switchTo().activeElement().sendKeys("Aakansha_Agarwal7");
+			driver.switchTo().activeElement().sendKeys("Aakansha_Agarwal7");
 
 			Actions action = new Actions(driver);
 			action.sendKeys(Keys.TAB).build().perform();
 
 			Thread.sleep((int) (1000 * Math.random() * 2));
 
-			driver.switchTo().activeElement().sendKeys("8290377887!");
-
-			// driver.switchTo().activeElement().sendKeys("ohmygod");
+			driver.switchTo().activeElement().sendKeys("ohmygod");
 
 			Thread.sleep((int) (1000 * Math.random() * 2));
 
