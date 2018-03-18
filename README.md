@@ -1,5 +1,5 @@
 # Instagram-Bot
-A Website Automation App Which'll Follow, Unfollow, Like, Comment With A Single Click.
+A Website Automation App Which'll Follow, Unfollow, Like, Comment Automatically.
 
 Requirments : Google Chrome, Java Development Kit(JDK), Eclipse(Only If You Want to Modify Source Code). 
 
